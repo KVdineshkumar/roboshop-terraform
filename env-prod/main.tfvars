@@ -1,1 +1,1 @@
-env = "prod"
+variable "env" {}
