@@ -35,8 +35,6 @@ components = {
 
 }
 
-env = "dev"
-
 tags = {
   company_name  = "XYZ Tech"
   business      = "ecommerce"
