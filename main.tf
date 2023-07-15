@@ -9,12 +9,14 @@ module "vpc" {
 }
 
 module "app_server" {
-  source = "git::https://github.com/KVdineshkumar/tf-module-app.git"
-  env = var.env
-  tags = var.tags
+  source    = "git::https://github.com/KVdineshkumar/tf-module-app.git"
+  env       = var.env
+  tags      = var.tags
   component = "test"
-  subnet_id = lookup(lookup(lookup(lookup(module.vpc,"main",null ),"subnet_ids",null ),"app",null ),"subnet_ids",null)[0]
-  vpc_id =lookup(lookup(module.vpc,"main",null ),"vpc_id"'nill' )
-  //module.vpc["subnet_ids"]["app"]["subnet_ids"][0]
+  subnet_id = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "app", null), "subnet_ids", null)[0]
+  vpc_id    = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
 }
+#  subnet_id = lookup(lookup(lookup(lookup(module.vpc,"main",null ),"subnet_ids",null ),"app",null ),"subnet_ids",null)[0]
+#  vpc_id =lookup(lookup(module.vpc,"main",null ),"vpc_id"'nill' )
+  //module.vpc["subnet_ids"]["app"]["subnet_ids"][0]
 
