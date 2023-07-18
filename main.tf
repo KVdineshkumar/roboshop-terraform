@@ -6,6 +6,7 @@ module "vpc" {
   env = var.env
   tags = var.tags
   default_vpc_id = var.default_vpc_id
+  default_vpc_rt = var.default_vpc_rt
 }
 
 module "app_server" {
@@ -16,7 +17,5 @@ module "app_server" {
   subnet_id = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "app", null), "subnet_ids", null)[0]
   vpc_id    = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
 }
-#  subnet_id = lookup(lookup(lookup(lookup(module.vpc,"main",null ),"subnet_ids",null ),"app",null ),"subnet_ids",null)[0]
-#  vpc_id =lookup(lookup(module.vpc,"main",null ),"vpc_id"'nill' )
-  //module.vpc["subnet_ids"]["app"]["subnet_ids"][0]
+
 
