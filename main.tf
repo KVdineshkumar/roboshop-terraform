@@ -17,19 +17,36 @@ module "app_server" {
   subnet_id = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "app", null), "subnet_ids", null)[0]
   vpc_id    = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
 }
+#module "rabbitmq" {
+#  source    = "git::https://github.com/KVdineshkumar/tf-module-rabbitmq.git"
+#
+#  for_each      = var.rabbitmq
+#  component     = each.value["component"]
+#  instance_type = each.value["instance_type"]
+#  sg_subnet_cidr= lookup(lookup(lookup(lookup(var.vpc, "main", null ), "subnets",null), "app", null), "cidr_block", null)
+#  vpc_id        = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
+#  subnet_id     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)[0]
+#  env            = var.env
+#  tags           = var.tags
+#  allow_ssh_cidr = var.allow_ssh_cidr
+#  zone_id        = var.zone_id
+#  kms_key_arn    = var.kms_key_arn
+#}
 module "rabbitmq" {
-  source    = "git::https://github.com/KVdineshkumar/tf-module-rabbitmq.git"
+  source = "git::https://github.com/KVdineshkumar/tf-module-rabbitmq.git"
 
   for_each      = var.rabbitmq
   component     = each.value["component"]
   instance_type = each.value["instance_type"]
-  sg_subnet_cidr= lookup(lookup(lookup(lookup(var.vpc, "main", null ), "subnets",null), "app", null), "cidr_block", null)
-  vpc_id        = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
-  subnet_id     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)[0]
+
+  sg_subnet_cidr = lookup(lookup(lookup(lookup(var.vpc, "main", null), "subnets", null), "app", null), "cidr_block", null)
+  vpc_id         = lookup(lookup(module.vpc, "main", null), "vpc_id", null)
+  subnet_id      = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)[0]
+
   env            = var.env
   tags           = var.tags
   allow_ssh_cidr = var.allow_ssh_cidr
-  zone_id        =  var.zone_id
+  zone_id        = var.zone_id
   kms_key_arn    = var.kms_key_arn
 }
 module "rds" {
