@@ -27,7 +27,7 @@ default_vpc_rt = "rtb-0db7d62f9bd2afea3"
 allow_ssh_cidr = [ "172.31.6.204/32" ]
 zone_id = "Z08427681QR9BSPPMJC53"
 kms_key_id = "f437aee2-3529-4431-9c1b-3492cba74634"
-
+kms_key_arn = "arn:aws:kms:us-east-1:833241119429:key/f437aee2-3529-4431-9c1b-3492cba74634"
 rabbitmq = {
   main = {
     instance_type = "t3.small"
