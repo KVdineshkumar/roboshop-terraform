@@ -30,7 +30,9 @@ module "rabbitmq" {
   tags           = var.tags
   allow_ssh_cidr = var.allow_ssh_cidr
   zone_id        = var.zone_id
- // kms_key_id    = var.kms_key_id
+  kms_key_id    = var.kms_key_id
+  kms_key_arm    = var.kms_key_arn
+
 }
 module "rds" {
   source = "git::https://github.com/KVdineshkumar/tf-module-rds.git"
