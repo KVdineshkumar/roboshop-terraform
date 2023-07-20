@@ -61,7 +61,7 @@ module "documentdb" {
   component      = each.value["component"]
   subnet_ids     = lookup(lookup(lookup(lookup(module.vpc, "main", null), "subnet_ids", null), "db", null), "subnet_ids", null)
   engine_version    = each.value["engine_version"]
-  instance_class    = each.value["instance_class"]
+
 
 
 
