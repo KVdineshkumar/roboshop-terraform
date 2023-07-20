@@ -1,4 +1,5 @@
 env = "dev"
+component     = "rabbitmq"
 
 tags = {
   company_name  = "XYZ Tech"
