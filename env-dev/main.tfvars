@@ -1,38 +1,5 @@
 env = "dev"
-components = {
 
-  frontend  = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  mongodb   = {
-    tags = { env = "dev"}
-  }
-  catalogue = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  redis     = {
-    tags = {  env = "dev"}
-  }
-  user      = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  cart      = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  mysql     = {
-    tags = {  env = "dev"}
-  }
-  shipping  = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-  rabbitmq  = {
-    tags = { env = "dev"}
-  }
-  payment   = {
-    tags = { Monitor = "true", env = "dev"}
-  }
-
-}
 tags = {
   company_name  = "XYZ Tech"
   business      = "ecommerce"
@@ -55,10 +22,11 @@ vpc = {
 
 default_vpc_id = "vpc-0ff78cc5f1fd06917"
 default_vpc_rt = "rtb-0db7d62f9bd2afea3"
-allow_ssh_cidr = [ "172.31.6.204/32" ]
-zone_id = "Z08427681QR9BSPPMJC53"
-kms_key_id = "f437aee2-3529-4431-9c1b-3492cba74634"
-kms_key_arn = "arn:aws:kms:us-east-1:833241119429:key/f437aee2-3529-4431-9c1b-3492cba74634"
+allow_ssh_cidr = ["172.31.6.204/32"]
+zone_id        = "Z08427681QR9BSPPMJC53"
+kms_key_id     = "f437aee2-3529-4431-9c1b-3492cba74634"
+kms_key_arn    = "arn:aws:kms:us-east-1:833241119429:key/f437aee2-3529-4431-9c1b-3492cba74634"
+
 rabbitmq = {
   main = {
     instance_type = "t3.small"
@@ -68,7 +36,7 @@ rabbitmq = {
 
 rds = {
   main = {
-    component               = "mysql"
+    component               = "rds"
     engine                  = "aurora-mysql"
     engine_version          = "5.7.mysql_aurora.2.11.3"
     db_name                 = "dummy"
