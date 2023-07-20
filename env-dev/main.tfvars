@@ -77,3 +77,8 @@ rds = {
     instance_class          = "db.t3.small"
   }
 }
+documentdb = {
+  main = {
+    component = "docdb"
+  }
+}
