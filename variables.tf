@@ -1,7 +1,5 @@
 variable "env" {}
-variable "components" {
-  default = "rds"
-}
+variable "components" {}
 variable "tags" {}
 variable "vpc" {}
 variable "default_vpc_id" {}
