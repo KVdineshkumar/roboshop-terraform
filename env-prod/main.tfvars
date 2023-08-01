@@ -1,4 +1,4 @@
-env = "dev"
+env = "prod"
 components = {
 
   frontend = {}
